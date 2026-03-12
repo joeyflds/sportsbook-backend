@@ -1,0 +1,10 @@
+import { db } from "../data/db.js";
+
+export function getAllBets() {
+  return db.bets;
+}
+
+export function addBet(bet) {
+  db.bets.push(bet);
+  return bet;
+}

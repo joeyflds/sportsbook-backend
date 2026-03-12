@@ -1,0 +1,18 @@
+import express from "express";
+import gamesRoutes from "./routes/games.js";
+import betsRoutes from "./routes/bets.js";
+import parlaysRoutes from "./routes/parlays.js";
+import metaRoutes from "./routes/meta.js";
+
+const app = express();
+app.use(express.json());
+
+app.use("/games", gamesRoutes);
+app.use("/bets", betsRoutes);
+app.use("/parlays", parlaysRoutes);
+app.use("/meta", metaRoutes);
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});

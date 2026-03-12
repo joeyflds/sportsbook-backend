@@ -1,0 +1,22 @@
+import express from "express";
+import { getAllBets, addBet } from "../services/betsService.js";
+
+const router = express.Router();
+
+router.get("/", (req, res) => {
+  const bets = getAllBets();
+  res.json({
+    bets,
+    message: "All bets returned successfully"
+  });
+});
+
+router.post("/", (req, res) => {
+  const newBet = addBet(req.body);
+  res.json({
+    message: "Bet added successfully",
+    bet: newBet
+  });
+});
+
+export default router;

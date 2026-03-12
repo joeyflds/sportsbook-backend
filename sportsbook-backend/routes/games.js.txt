@@ -1,0 +1,14 @@
+import express from "express";
+import { getLiveGames } from "../services/gamesService.js";
+
+const router = express.Router();
+
+router.get("/live", (req, res) => {
+  const games = getLiveGames();
+  res.json({
+    games,
+    message: "Live games returned successfully"
+  });
+});
+
+export default router;
